@@ -40,21 +40,6 @@ endif ()
 add_library(benchmark OBJECT benchmark.cpp)
 target_compile_features(benchmark PRIVATE cxx_std_11)
 
-add_executable(benchmark-basic dgemv-basic.cpp)
-target_link_libraries(benchmark-basic PRIVATE benchmark ${BLAS_LIBRARIES})
-target_compile_features(benchmark-basic PRIVATE c_std_11 c_restrict)
-target_compile_options(benchmark-basic PRIVATE -Wall -pedantic -march=native -O1)
-
-add_executable(benchmark-vectorized dgemv-vectorized.cpp)
-target_link_libraries(benchmark-vectorized PRIVATE benchmark ${BLAS_LIBRARIES})
-target_compile_features(benchmark-vectorized PRIVATE c_std_11 c_restrict)
-target_compile_options(benchmark-vectorized PRIVATE -Wall -pedantic ${VFLAGS} ) 
-
-add_executable(benchmark-blas dgemv-blas.cpp)
-target_link_libraries(benchmark-blas PRIVATE benchmark ${BLAS_LIBRARIES})
-target_compile_features(benchmark-blas PRIVATE c_std_11 c_restrict)
-target_compile_options(benchmark-blas PRIVATE -Wall -pedantic -march=native)
-
 add_executable(benchmark-openmp dgemv-openmp.cpp)
 target_link_libraries(benchmark-openmp PRIVATE benchmark ${BLAS_LIBRARIES})
 target_link_options(benchmark-openmp PRIVATE -fopenmp)

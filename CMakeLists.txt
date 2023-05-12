@@ -73,7 +73,7 @@ target_link_options(benchmark-openmp-inner PRIVATE -fopenmp)
 target_compile_features(benchmark-openmp-inner PRIVATE c_std_11 c_restrict)
 target_compile_options(benchmark-openmp-inner PRIVATE -fopenmp -Wall -pedantic -march=native -O1)
 
-add_executable(benchmark-openmp-nester dgemv-openmp-nested.cpp)
+add_executable(benchmark-openmp-nested dgemv-openmp-nested.cpp)
 target_link_libraries(benchmark-openmp-nested PRIVATE benchmark ${BLAS_LIBRARIES})
 target_link_options(benchmark-openmp-nested PRIVATE -fopenmp)
 target_compile_features(benchmark-openmp-nested PRIVATE c_std_11 c_restrict)

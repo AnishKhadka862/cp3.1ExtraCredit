@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <omp.h>
 
-const char* dgemv_desc = "OpenMP dgemv.";
+const char* dgemv_desc = "OpenMP dgemv nested loop.";
 
 /*
  * This routine performs a dgemv operation
